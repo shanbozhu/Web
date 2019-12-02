@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>metadata</key>
+			<dict>
+				<key>title</key>
+				<string>百度极速版</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>bundle-version</key>
+				<string>4.10.0</string>
+				<key>bundle-identifier</key>
+				<string>com.baidu.BaiduMobileInfoEnterpriseA</string>
+			</dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>url</key>
+					<string>https://bj.bcebos.com/ibox-docpreview100/b5cbb5fc4a413a5c00685fc75cc40170?authorization=bce-auth-v1%2Ffbe74140929444858491fbf2b6bc0935%2F2019-12-02T04%3A40%3A22Z%2F1800%2F%2F9b73d016c6bbc1c6115d36d3513c1693273614ca292482ac72ba613f4029010e&amp;responseContentDisposition=attachment%3Bfilename%3D%22BaiduLiteApp.ipa%22</string>
+					<key>kind</key>
+					<string>software-package</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
