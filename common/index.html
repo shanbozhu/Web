@@ -7,15 +7,18 @@
 
 	<body align="center">
 		<h1 style="font-size:35pt">
-			<!-- 使用自建的https服务器需要下面语句 -->
-			安装APP前，首先安装网站的ssl证书，并在“系统设置-》通用-》关于本机-》证书信任设置”中信任该证书。只需安装一次即可，如已安装，则忽略。
+			<!-- manifest.plist文件使用自建的https服务器需要下面语句 -->
+			<!-- 安装APP前，首先安装网站的ssl证书，并在“系统设置-》通用-》关于本机-》证书信任设置”中信任该证书。只需安装一次即可，如已安装，则忽略。 -->
 		</h1>
 		<h1 style="font-size:50pt">
-			<!-- 使用自建的https服务器需要下面语句 -->
-			<a title="ssl" href="https://172.18.22.104/common/ca.crt">安装网站的ssl证书（如已安装，则忽略）</a>
+			<!-- manifest.plist文件使用自建的https服务器需要下面语句 -->
+			<!-- <a title="ssl" href="https://172.18.22.104/common/ca.crt">安装网站的ssl证书（如已安装，则忽略）</a> -->
 		</h1>
 		<h1 style="font-size:80pt">
-			<a title="install" href="itms-services://?action=download-manifest&url=https://172.18.22.104/common/manifest.plist">安装APP</a>
+			<a title="install" href="itms-services://?action=download-manifest&url=https://github.com/shanbozhu/Web/raw/master/common/manifest.plist">安装APP</a>
+		</h1>
+		<h1>
+			<img src="https://172.18.22.104/common/ota.png" alt="ota.png" height="300" width="300" />
 		</h1>
 		<h1 style="font-size:50pt">
 			<!-- <a title="download" href="https://172.18.22.104/common/app.ipa">下载安装包</a> -->
