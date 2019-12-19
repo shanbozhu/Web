@@ -14,3 +14,7 @@ bb=$(echo "$bb" | sed -n '1p')
 #echo "$cc"
 ./update.sh $bb $aa html
 ./update.sh $bb $aa plist 
+
+git add .
+git commit -m "修改为本机ip"
+git push
