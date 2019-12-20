@@ -18,3 +18,5 @@ bb=$(echo "$bb" | sed -n '1p')
 git add .
 git commit -m "修改为本机ip"
 git push
+
+echo "浏览器访问:http://$aa"
