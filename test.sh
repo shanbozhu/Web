@@ -19,5 +19,11 @@ git add .
 git commit -m "修改为本机ip" &> /dev/null
 git push &> /dev/null
 
-open http://$aa
+#open http://$aa
 echo "浏览器访问: http://$aa"
+
+cp -a ./common/manifest.plist ../OTA
+cd ../OTA
+git add .
+git commit -m "上传manifest文件" &> /dev/null
+git push &> /dev/null
