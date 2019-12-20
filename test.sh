@@ -20,7 +20,7 @@ git commit -m "修改为本机ip" &> /dev/null
 git push &> /dev/null
 
 #open http://$aa
-echo "浏览器访问: http://$aa"
+echo -e "浏览器访问:\033[31m http://$aa \033[0m"
 
 cp -a ./common/manifest.plist ../OTA
 cd ../OTA
