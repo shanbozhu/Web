@@ -19,4 +19,5 @@ git add .
 git commit -m "修改为本机ip" &> /dev/null
 git push &> /dev/null
 
+open http://localhost/
 echo "浏览器访问: http://$aa"
