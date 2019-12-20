@@ -1,8 +1,9 @@
 #!/bin/bash
 # 将ip地址替换为本机地址
 
-aa=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i 172 | sed -n '1p')
-bb=$(cat ./index.html | sed -e 's/\//\'$'\n/g' | grep -i 172 | sed -n '1p')
+NET=172
+aa=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i $NET | sed -n '1p')
+bb=$(cat ./index.html | sed -e 's/\//\'$'\n/g' | grep -i $NET | sed -n '1p')
 #echo "$aa"
 #echo "$bb"
 #cc=$(cat ~/Desktop/CustomWeb/index.html | sed -e 's/\//\'$'\n/g')
