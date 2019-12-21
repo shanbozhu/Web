@@ -39,7 +39,7 @@ git push &> /dev/null
 URL="http://$aa"
 #open URL
 echo -e "浏览器访问: \033[34m$URL\033[0m"
-qrencode -o index.png -s 10 "$URL"
+qrencode -o index.png -s 10 -m 1 "$URL"
 
 cp -a ./common/manifest.plist ../OTA
 cd ../OTA
