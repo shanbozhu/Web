@@ -7,6 +7,7 @@ echo "$aa"
 
 # index.html中的ip
 bb=$(cat ./index.html | sed -e 's/\//\'$'\n/g' | grep -i 172 | sed -n '1p')
+echo "$bb"
 if [ -z "$bb" ]; then
     read bb 0< lastip.conf
     echo "-------"
@@ -20,8 +21,8 @@ echo "$bb"
 #cc=$(more ~/Desktop/CustomWeb/index.html | tr '\/' '\n')
 #echo "$cc"
 
-if [ -z "$aa" ] || [ -z "$bb" ]; then
-    echo "aa或bb为空"
+if [ -z "$aa" ] || [ -z "$bb" ] || [ "$aa" == "$bb" ]; then
+    echo "aa或bb为空或aa与bb相同"
     exit 0
 fi
 
@@ -35,8 +36,10 @@ git add .
 git commit -m "修改为本机ip" &> /dev/null
 git push &> /dev/null
 
-#open http://$aa
-echo -e "浏览器访问: \033[34mhttp://$aa\033[0m"
+URL="http://$aa"
+#open URL
+echo -e "浏览器访问: \033[34m$URL\033[0m"
+qrencode -o index.png "$URL"
 
 cp -a ./common/manifest.plist ../OTA
 cd ../OTA
