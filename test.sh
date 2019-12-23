@@ -32,14 +32,14 @@ fi
 # 替换完成,记录上一次的ip
 echo "$aa" 1> lastip.conf
 
-git add .
-git commit -m "修改为本机ip" &> /dev/null
-git push &> /dev/null
-
 URL="http://$aa"
 #open URL
 echo -e "浏览器访问: \033[34m$URL\033[0m"
 qrencode -o index.png -s 10 -m 1 "$URL"
+
+git add .
+git commit -m "修改为本机ip" &> /dev/null
+git push &> /dev/null
 
 cp -a ./common/manifest.plist ../OTA
 cd ../OTA
