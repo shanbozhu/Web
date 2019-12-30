@@ -34,7 +34,7 @@ echo "$aa" 1> lastip.conf
 
 URL="http://$aa"
 #open URL
-echo -e "浏览器访问: \033[34m$URL\033[0m"
+echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
 qrencode -o index.png -s 10 -m 1 "$URL"
 
 git add .
