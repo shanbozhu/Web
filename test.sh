@@ -3,45 +3,55 @@
 
 # 获取网络ip
 function getNetIP() {
-    NETIP=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i 1 | sed -n '3p')
-    echo "$NETIP"
+    netIP=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i 1 | sed -n '3p')
+    echo "$netIP"
     return 0;
 }
-NETIP=$(getNetIP)
-echo "当前网络的ip:$NETIP"
+netIP=$(getNetIP)
+echo "当前网络的ip:$netIP"
 
 # 获取index.html中的ip
 function getLocalFileIP() {
-    LOCALFILEIP=$(cat ./index.html | sed -e 's/\//\'$'\n/g' | grep -i 172 | sed -n '1p')
-    if [ -z "$LOCALFILEIP" ]; then
-        read LOCALFILEIP 0< lastip.conf
+    localFileIP=$(cat ./index.html | sed -e 's/\//\'$'\n/g' | grep -i 172 | sed -n '1p')
+    if [ -z "$localFileIP" ]; then
+        read localFileIP 0< lastip.conf
     fi
-    echo "$LOCALFILEIP"
+    echo "$localFileIP"
     return 0;
 }
-LOCALFILEIP=$(getLocalFileIP)
-echo "本地文件的ip:$LOCALFILEIP"
+localFileIP=$(getLocalFileIP)
+echo "本地文件的ip:$localFileIP"
 
-#echo $NETIP
-
-if [ -z "$NETIP" ] || [ -z "$LOCALFILEIP" ] || [ "$NETIP" == "$LOCALFILEIP" ]; then
-    echo "替换失败!获取到的ip无效或二者相同"
-    exit 0
-fi
+function checkReplace() {
+    if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
+        echo "替换失败!获取到的ip无效或二者相同"
+        exit 0
+    fi
+    return 0
+}
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
-./update.sh $LOCALFILEIP $NETIP html
-./update.sh $LOCALFILEIP $NETIP plist
+function replace() {
+    ./update.sh $localFileIP $netIP html
+    ./update.sh $localFileIP $netIP plist
+    return 0
+}
+replace
 
-# 替换完成,记录上一次的ip
-echo "$NETIP" 1> lastip.conf
+function afterReplacement() {
+    # 替换完成,记录上一次的ip
+    echo "$netIP" 1> lastip.conf
 
-# 输出成功提示
-URL="http://$NETIP"
-echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
+    # 生成访问本站地址的二维码
+    URL="http://$netIP"
+    qrencode -o index.png -s 10 -m 1 "$URL"
 
-# 生成访问本站地址的二维码
-qrencode -o index.png -s 10 -m 1 "$URL"
+    # 输出成功提示
+    echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
+    return 0
+}
+afterReplacement
 
 # 将改动推送到github仓库
 function pushGithub() {
@@ -50,7 +60,7 @@ function pushGithub() {
     git push &> /dev/null
     return 0
 }
-#pushGithub
+pushGithub
 
 # 将manifest.plist文件推送到coding仓库
 function pushCoding() {
@@ -62,5 +72,4 @@ function pushCoding() {
     git push &> /dev/null
     return 0
 }
-#pushCoding
-
+pushCoding
