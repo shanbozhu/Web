@@ -5,7 +5,7 @@ function replacementOperation() {
     if [ ! $# -eq 2 -a ! $# -eq 3 ]; then
         echo "usage:{$0 text1 text2 type}"; exit
     else
-        echo "正在替换当前目录下所有$3文件中的文本\"$1\"为\"$2\""
+        echo "正在替换当前目录下所有\"$3\"文件中的文本\"$1\"为\"$2\""
     fi
 
     if [ ! -z $3 ]; then
