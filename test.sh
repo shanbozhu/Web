@@ -29,7 +29,7 @@ function checkReplace() {
     fi
     return 0
 }
-checkReplace
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
 function replace() {
@@ -53,23 +53,31 @@ function afterReplacement() {
 }
 afterReplacement
 
-# 将改动推送到github仓库
-function pushGithub() {
-    git add .
-    git commit -m "修改为本机ip" &> /dev/null
-    git push &> /dev/null
-    return 0
-}
-pushGithub
+## 将改动推送到github仓库
+#function pushGithub() {
+#    git add .
+#    git commit -m "修改为本机ip" &> /dev/null
+#    git push &> /dev/null
+#    return 0
+#}
+#pushGithub
+#
+## 将manifest.plist文件推送到coding仓库
+#function pushCoding() {
+#    cp -a ./common/manifest.plist ../OTA
+#    cd ../OTA
+#
+#    git add .
+#    git commit -m "上传manifest文件" &> /dev/null
+#    git push &> /dev/null
+#    return 0
+#}
+#pushCoding
 
-# 将manifest.plist文件推送到coding仓库
-function pushCoding() {
-    cp -a ./common/manifest.plist ../OTA
-    cd ../OTA
-    
-    git add .
-    git commit -m "上传manifest文件" &> /dev/null
-    git push &> /dev/null
+function push() {
+    source push.sh
+    pushGithub
+    pushCoding
     return 0
 }
-pushCoding
+push
