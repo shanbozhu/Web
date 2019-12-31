@@ -14,8 +14,8 @@ function pushGithub() {
 function pushCoding() {
     echo "$1"
     
-    cp -a ./common/manifest.plist ../OTA
-    cd ../OTA
+    cp -a ../common/manifest.plist ../OTA
+    cd ../../OTA
     
     git add .
     git commit -m "上传manifest文件" &> /dev/null
