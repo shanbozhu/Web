@@ -41,7 +41,7 @@ replace
 
 URL="http://$netIP"
 function afterReplacement() {
-    # 替换完成,记录上一次的ip
+    # 记录上一次的ip到本地文件
     echo "$netIP" 1> lastip.conf
 
     # 生成访问本站地址的二维码
