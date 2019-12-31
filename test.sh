@@ -12,10 +12,10 @@ if [ -z "$bb" ]; then
 fi
 echo "本地文件的ip:$bb"
 
-#if [ -z "$aa" ] || [ -z "$bb" ] || [ "$aa" == "$bb" ]; then
-#    echo "替换失败!获取到的ip无效或二者相同"
-#    exit 0
-#fi
+if [ -z "$aa" ] || [ -z "$bb" ] || [ "$aa" == "$bb" ]; then
+    echo "替换失败!获取到的ip无效或二者相同"
+    exit 0
+fi
 
 # 调用update.sh脚本执行替换操作
 ./update.sh $bb $aa html
@@ -38,16 +38,17 @@ function pushGithub() {
     git push &> /dev/null
     return 0
 }
-pushGithub
+#pushGithub
 
 # 将manifest.plist文件推送到coding仓库
 function pushCoding() {
     cp -a ./common/manifest.plist ../OTA
     cd ../OTA
+    
     git add .
     git commit -m "上传manifest文件" &> /dev/null
     git push &> /dev/null
     return 0
 }
-pushCoding
+#pushCoding
 
