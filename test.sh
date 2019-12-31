@@ -76,9 +76,8 @@ afterReplacement
 
 source push.sh
 function push() {
-    
-    pushGithub
-    pushCoding
+    pushGithub "正在推送本地改动到github仓库"
+    pushCoding "正在推送manifest.plist文件到coding仓库"
     return 0
 }
 push

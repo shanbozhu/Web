@@ -2,7 +2,8 @@
 
 # 将改动推送到github仓库
 function pushGithub() {
-    echo "lalal"
+    echo "$1"
+    
     git add .
     git commit -m "修改为本机ip" &> /dev/null
     git push &> /dev/null
@@ -11,7 +12,8 @@ function pushGithub() {
 
 # 将manifest.plist文件推送到coding仓库
 function pushCoding() {
-    echo "aaaa"
+    echo "$1"
+    
     cp -a ./common/manifest.plist ../OTA
     cd ../OTA
     
