@@ -32,16 +32,9 @@ function checkReplace() {
 #checkReplace
 
 # 调用update.sh脚本执行替换操作
-#function replace() {
-#    ./update.sh $localFileIP $netIP html
-#    ./update.sh $localFileIP $netIP plist
-#    return 0
-#}
-#replace
 function replace() {
-    source ./update.sh
-    replacementOperation $localFileIP $netIP html
-#    ./update.sh $localFileIP $netIP plist
+    ./update.sh $localFileIP $netIP html
+    ./update.sh $localFileIP $netIP plist
     return 0
 }
 replace
