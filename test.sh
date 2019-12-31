@@ -29,12 +29,19 @@ function checkReplace() {
     fi
     return 0
 }
-checkReplace
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
+#function replace() {
+#    ./update.sh $localFileIP $netIP html
+#    ./update.sh $localFileIP $netIP plist
+#    return 0
+#}
+#replace
 function replace() {
-    ./update.sh $localFileIP $netIP html
-    ./update.sh $localFileIP $netIP plist
+    source ./update.sh
+    replacementOperation 222 3333 html
+#    ./update.sh $localFileIP $netIP plist
     return 0
 }
 replace
