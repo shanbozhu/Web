@@ -46,9 +46,6 @@ function afterReplacement() {
 
     # 生成访问本站地址的二维码
     qrencode -o index.png -s 10 -m 1 "$URL"
-
-    # 输出成功提示
-    echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
     return 0
 }
 afterReplacement
@@ -60,3 +57,6 @@ function push() {
     return 0
 }
 push
+
+# 输出成功提示
+echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
