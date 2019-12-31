@@ -29,7 +29,7 @@ function checkReplace() {
     fi
     return 0
 }
-checkReplace
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
 function replace() {
@@ -60,4 +60,6 @@ function push() {
 push
 
 # 输出成功提示
-echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
+function success() {
+    echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
+}
