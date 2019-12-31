@@ -12,10 +12,10 @@ if [ -z "$bb" ]; then
 fi
 echo "本地文件的ip:$bb"
 
-if [ -z "$aa" ] || [ -z "$bb" ] || [ "$aa" == "$bb" ]; then
-    echo "替换失败!获取到的ip无效或二者相同"
-    exit 0
-fi
+#if [ -z "$aa" ] || [ -z "$bb" ] || [ "$aa" == "$bb" ]; then
+#    echo "替换失败!获取到的ip无效或二者相同"
+#    exit 0
+#fi
 
 # 调用update.sh脚本执行替换操作
 ./update.sh $bb $aa html
@@ -32,13 +32,22 @@ echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
 qrencode -o index.png -s 10 -m 1 "$URL"
 
 # 将改动推送到github仓库
-git add .
-git commit -m "修改为本机ip" &> /dev/null
-git push &> /dev/null
+function pushGithub() {
+    git add .
+    git commit -m "修改为本机ip" &> /dev/null
+    git push &> /dev/null
+    return 0
+}
+pushGithub
 
 # 将manifest.plist文件推送到coding仓库
-cp -a ./common/manifest.plist ../OTA
-cd ../OTA
-git add .
-git commit -m "上传manifest文件" &> /dev/null
-git push &> /dev/null
+function pushCoding() {
+    cp -a ./common/manifest.plist ../OTA
+    cd ../OTA
+    git add .
+    git commit -m "上传manifest文件" &> /dev/null
+    git push &> /dev/null
+    return 0
+}
+pushCoding
+
