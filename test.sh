@@ -39,12 +39,12 @@ function replace() {
 }
 replace
 
+URL="http://$netIP"
 function afterReplacement() {
     # 替换完成,记录上一次的ip
     echo "$netIP" 1> lastip.conf
 
     # 生成访问本站地址的二维码
-    URL="http://$netIP"
     qrencode -o index.png -s 10 -m 1 "$URL"
 
     # 输出成功提示
@@ -53,28 +53,7 @@ function afterReplacement() {
 }
 afterReplacement
 
-## 将改动推送到github仓库
-#function pushGithub() {
-#    git add .
-#    git commit -m "修改为本机ip" &> /dev/null
-#    git push &> /dev/null
-#    return 0
-#}
-#pushGithub
-#
-## 将manifest.plist文件推送到coding仓库
-#function pushCoding() {
-#    cp -a ./common/manifest.plist ../OTA
-#    cd ../OTA
-#
-#    git add .
-#    git commit -m "上传manifest文件" &> /dev/null
-#    git push &> /dev/null
-#    return 0
-#}
-#pushCoding
-
-. push.sh
+source push.sh
 function push() {
     pushGithub "正在推送本地改动到github仓库..."
     pushCoding "正在推送manifest.plist文件到coding仓库..."
