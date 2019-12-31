@@ -1,5 +1,5 @@
 #!/bin/bash
-# 将ip地址替换为本机地址
+# 将当前目录下所有html和plist文件中的ip地址替换为本机地址
 
 # 获取网络ip
 function getNetIP() {
