@@ -4,6 +4,8 @@
 function pushGithub() {
     echo "$1"
     
+    cd ../
+    
     git add .
     git commit -m "修改为本机ip" &> /dev/null
     git push &> /dev/null
@@ -14,8 +16,8 @@ function pushGithub() {
 function pushCoding() {
     echo "$1"
     
-    cp -a ../common/manifest.plist ../../OTA
-    cd ../../OTA
+    cp -a ./common/manifest.plist ../OTA
+    cd ../OTA
     
     git add .
     git commit -m "上传manifest文件" &> /dev/null
