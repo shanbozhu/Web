@@ -63,3 +63,4 @@ push
 function success() {
     echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
 }
+success
