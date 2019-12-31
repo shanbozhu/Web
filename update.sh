@@ -16,4 +16,4 @@ function replacementOperation() {
     echo 替换完成!
     return 0
 }
-#replacementOperation $1 $2 $3
+replacementOperation $1 $2 $3
