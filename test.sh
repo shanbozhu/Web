@@ -74,10 +74,11 @@ afterReplacement
 #}
 #pushCoding
 
-function pushGithub() {
-    source push.sh
+source push.sh
+function push() {
+    
     pushGithub
     pushCoding
     return 0
 }
-pushGithub
+push
