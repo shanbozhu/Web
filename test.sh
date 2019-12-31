@@ -25,10 +25,12 @@ echo "本地文件的ip:$localFileIP"
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
         echo "替换失败!获取到的ip无效或二者相同"
+        
         exit 0
     fi
     return 0
 }
+
 #checkReplace
 
 # 调用update.sh脚本执行替换操作
@@ -59,8 +61,9 @@ function push() {
 }
 push
 
+success
 # 输出成功提示
 function success() {
     echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
 }
-success
+#success
