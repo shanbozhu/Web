@@ -29,7 +29,7 @@ function checkReplace() {
     fi
     return 0
 }
-#checkReplace
+checkReplace
 
 # 调用update.sh脚本执行替换操作
 function replace() {
