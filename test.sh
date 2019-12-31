@@ -40,7 +40,7 @@ function checkReplace() {
 #replace
 function replace() {
     source ./update.sh
-    replacementOperation 222 3333 html
+    replacementOperation $localFileIP $netIP html
 #    ./update.sh $localFileIP $netIP plist
     return 0
 }
