@@ -5,7 +5,7 @@ function replacementOperation() {
     if [ ! $# -eq 4 ]; then
         echo "usage:{$0 text1 text2 type path}"; exit
     else
-        echo "正在替换所有\"$3\"文件中的文本\"$1\"为\"$2\""
+        echo "替换所有\"$3\"中的文本\"$1\"为\"$2\""
     fi
 
     if [ ! -z $3 ]; then
