@@ -35,6 +35,7 @@ function checkReplace() {
 function replace() {
     ./update.sh $localFileIP $netIP html
     ./update.sh $localFileIP $netIP plist
+    echo 替换完成!
     return 0
 }
 replace

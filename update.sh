@@ -13,7 +13,6 @@ function replacementOperation() {
     else
         LC_CTYPE=C sed -i "" "s/$1/$2/g" `grep -rl $1 .` &> /dev/null
     fi
-    echo 替换完成!
     return 0
 }
 replacementOperation $1 $2 $3
