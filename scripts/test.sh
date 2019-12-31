@@ -34,7 +34,7 @@ function checkReplace() {
     fi
     return 0
 }
-checkReplace
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
 function replace() {
@@ -51,7 +51,7 @@ function afterReplacement() {
     echo "$netIP" 1> $lastIPPath
 
     # 生成访问本站地址的二维码
-    qrencode -o index.png -s 10 -m 1 "$URL"
+    qrencode -o ../index.png -s 10 -m 1 "$URL"
     return 0
 }
 afterReplacement
