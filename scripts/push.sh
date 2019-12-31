@@ -14,7 +14,7 @@ function pushGithub() {
 function pushCoding() {
     echo "$1"
     
-    cp -a ../common/manifest.plist ../OTA
+    cp -a ../common/manifest.plist ../../OTA
     cd ../../OTA
     
     git add .
