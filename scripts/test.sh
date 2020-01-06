@@ -72,14 +72,10 @@ function main() {
     echo "本地文件的ip:$localFileIP"
 
 #    checkReplace
-
     replace
-
     afterReplacement
-
     push
-    
-    tips
+    tip
     return 0
 }
 main
