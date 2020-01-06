@@ -34,7 +34,7 @@ function checkReplace() {
 # 提示
 function tips() {
     echo "$URL" | pbcopy
-    echo "地址已复制到剪贴板"
+    echo "地址已复制到剪贴板!"
     echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
     return 0
 }
@@ -70,7 +70,7 @@ function main() {
     localFileIP=$(getLocalFileIP)
     echo "本地文件的ip:$localFileIP"
     
-URL="http://$netIP"
+    URL="http://$netIP"
 
 #    checkReplace
     replace
