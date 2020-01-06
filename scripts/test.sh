@@ -66,10 +66,11 @@ function push() {
 function main() {
     netIP=$(getNetIP)
     echo "当前网络的ip:$netIP"
-    URL="http://$netIP"
-
+    
     localFileIP=$(getLocalFileIP)
     echo "本地文件的ip:$localFileIP"
+    
+URL="http://$netIP"
 
 #    checkReplace
     replace
