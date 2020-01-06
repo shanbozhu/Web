@@ -12,7 +12,6 @@ function getNetIP() {
     return 0;
 }
 
-
 # 获取index.html中的ip
 function getLocalFileIP() {
     localFileIP=$(cat ${htmlPath} | sed -e 's/\//\'$'\n/g' | grep -i 172 | sed -n '1p')
@@ -23,7 +22,6 @@ function getLocalFileIP() {
     return 0;
 }
 
-
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
         echo "替换失败!获取到的ip无效或二者相同"
@@ -33,7 +31,6 @@ function checkReplace() {
     return 0
 }
 
-
 # 调用update.sh脚本执行替换操作
 function replace() {
     ./update.sh $localFileIP $netIP html ..
@@ -41,7 +38,6 @@ function replace() {
     echo 替换完成!
     return 0
 }
-
 
 function afterReplacement() {
     # 记录上一次的ip到本地文件
@@ -52,7 +48,6 @@ function afterReplacement() {
     return 0
 }
 
-
 source push.sh
 function push() {
     pushGithub "正在推送本地改动到github仓库..."
@@ -62,29 +57,20 @@ function push() {
 
 
 
-
-
-
 netIP=$(getNetIP)
 echo "当前网络的ip:$netIP"
 URL="http://$netIP"
 
-
 localFileIP=$(getLocalFileIP)
 echo "本地文件的ip:$localFileIP"
 
-
 #checkReplace
-
 
 replace
 
-
 afterReplacement
 
-
 push
-
 
 # 输出成功提示
 echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
