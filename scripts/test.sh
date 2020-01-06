@@ -11,9 +11,7 @@ function getNetIP() {
     echo "$netIP"
     return 0;
 }
-netIP=$(getNetIP)
-echo "当前网络的ip:$netIP"
-URL="http://$netIP"
+
 
 # 获取index.html中的ip
 function getLocalFileIP() {
@@ -24,8 +22,7 @@ function getLocalFileIP() {
     echo "$localFileIP"
     return 0;
 }
-localFileIP=$(getLocalFileIP)
-echo "本地文件的ip:$localFileIP"
+
 
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
@@ -35,7 +32,7 @@ function checkReplace() {
     fi
     return 0
 }
-checkReplace
+
 
 # 调用update.sh脚本执行替换操作
 function replace() {
@@ -44,7 +41,7 @@ function replace() {
     echo 替换完成!
     return 0
 }
-replace
+
 
 function afterReplacement() {
     # 记录上一次的ip到本地文件
@@ -54,7 +51,7 @@ function afterReplacement() {
     qrencode -o ../index.png -s 10 -m 1 "$URL"
     return 0
 }
-afterReplacement
+
 
 source push.sh
 function push() {
@@ -62,7 +59,32 @@ function push() {
     pushCoding "正在推送manifest.plist文件到coding仓库..."
     return 0
 }
+
+
+
+
+
+
+netIP=$(getNetIP)
+echo "当前网络的ip:$netIP"
+URL="http://$netIP"
+
+
+localFileIP=$(getLocalFileIP)
+echo "本地文件的ip:$localFileIP"
+
+
+#checkReplace
+
+
+replace
+
+
+afterReplacement
+
+
 push
+
 
 # 输出成功提示
 echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
