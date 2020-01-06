@@ -78,6 +78,8 @@ function main() {
     afterReplacement
 
     push
+    
+    tips
     return 0
 }
 main
