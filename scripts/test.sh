@@ -71,7 +71,7 @@ function main() {
     echo "本地文件的ip:$localFileIP"
     
     URL="http://$netIP"
-
+    
     checkReplace
     replace
     afterReplacement
