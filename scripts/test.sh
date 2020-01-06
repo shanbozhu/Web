@@ -31,7 +31,7 @@ function checkReplace() {
     return 0
 }
 
-# 输出成功提示
+# 提示
 function tips() {
     echo "$URL" | pbcopy
     echo "地址已复制到剪贴板"
@@ -53,6 +53,9 @@ function afterReplacement() {
 
     # 生成访问本站地址的二维码
     qrencode -o ../index.png -s 10 -m 1 "$URL"
+    
+    # 提示
+    tips
     return 0
 }
 
