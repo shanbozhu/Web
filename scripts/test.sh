@@ -53,9 +53,6 @@ function afterReplacement() {
 
     # 生成访问本站地址的二维码
     qrencode -o ../index.png -s 10 -m 1 "$URL"
-    
-    # 提示
-    tips
     return 0
 }
 
