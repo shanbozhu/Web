@@ -13,6 +13,7 @@ function getNetIP() {
 }
 netIP=$(getNetIP)
 echo "当前网络的ip:$netIP"
+URL="http://$netIP"
 
 # 获取index.html中的ip
 function getLocalFileIP() {
@@ -29,12 +30,12 @@ echo "本地文件的ip:$localFileIP"
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
         echo "替换失败!获取到的ip无效或二者相同"
-        echo -e "浏览器尝试访问: \033[34mhttp://$netIP\033[0m"
+        echo -e "浏览器尝试访问: \033[34m$URL\033[0m"
         exit 0
     fi
     return 0
 }
-checkReplace
+#checkReplace
 
 # 调用update.sh脚本执行替换操作
 function replace() {
@@ -45,7 +46,6 @@ function replace() {
 }
 replace
 
-URL="http://$netIP"
 function afterReplacement() {
     # 记录上一次的ip到本地文件
     echo "$netIP" 1> $lastIPPath
