@@ -64,7 +64,7 @@ URL="http://$netIP"
 localFileIP=$(getLocalFileIP)
 echo "本地文件的ip:$localFileIP"
 
-#checkReplace
+checkReplace
 
 replace
 
