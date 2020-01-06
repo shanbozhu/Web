@@ -25,9 +25,17 @@ function getLocalFileIP() {
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
         echo "替换失败!获取到的ip无效或二者相同"
-        echo -e "浏览器尝试访问: \033[34m$URL\033[0m"
+        tips
         exit 0
     fi
+    return 0
+}
+
+# 输出成功提示
+function tips() {
+    echo "$URL" | pbcopy
+    echo "地址已复制到剪贴板"
+    echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
     return 0
 }
 
@@ -55,22 +63,22 @@ function push() {
     return 0
 }
 
+function main() {
+    netIP=$(getNetIP)
+    echo "当前网络的ip:$netIP"
+    URL="http://$netIP"
 
+    localFileIP=$(getLocalFileIP)
+    echo "本地文件的ip:$localFileIP"
 
-netIP=$(getNetIP)
-echo "当前网络的ip:$netIP"
-URL="http://$netIP"
+#    checkReplace
 
-localFileIP=$(getLocalFileIP)
-echo "本地文件的ip:$localFileIP"
+    replace
 
-checkReplace
+    afterReplacement
 
-replace
+    push
+    return 0
+}
+main
 
-afterReplacement
-
-push
-
-# 输出成功提示
-echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
