@@ -75,7 +75,7 @@ function main() {
     replace
     afterReplacement
     push
-    tip
+    tips
     return 0
 }
 main
