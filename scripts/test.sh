@@ -79,5 +79,6 @@ function main() {
     tips
     return 0
 }
-main
 
+# 执行入口
+main
