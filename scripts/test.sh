@@ -7,7 +7,8 @@ lastIPPath=./lastip.conf
 
 # 获取网络ip
 function getNetIP() {
-    netIP=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i 1 | sed -n '2p')
+    #netIP=$(ifconfig en0 | sed -e 's/ /\'$'\n/g' | grep -i 1 | sed -n '2p')
+    netIP=$(ifconfig en0 | grep 'inet ' | sed -e 's/ /\'$'\n/g' | sed -n '2p')
     echo "$netIP"
     return 0;
 }
