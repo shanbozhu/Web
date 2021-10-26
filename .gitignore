@@ -1,4 +1,4 @@
 *.ipa
 *.zip
-share
+share/*
 common/Payload
