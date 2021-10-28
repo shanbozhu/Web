@@ -2,6 +2,8 @@
 
 # 将改动推送到github仓库
 function pushGithub() {
+    return 0
+    
     echo "$1"
     
     cd ../
