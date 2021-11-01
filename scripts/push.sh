@@ -8,6 +8,8 @@ function pushGithub() {
     
     cd ../
     
+    return 0
+    
     git add .
     git commit -m "修改为本机ip" &> /dev/null
     git push &> /dev/null
