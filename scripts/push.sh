@@ -2,12 +2,11 @@
 
 # 将改动推送到github仓库
 function pushGithub() {
-    return 0
-    
     echo "$1"
     
     cd ../
     
+    # 由于github网络不稳定,暂时不推送到远端仓库!!!!!!!!!!!!!!!!!!
     return 0
     
     git add .
