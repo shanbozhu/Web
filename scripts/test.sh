@@ -25,7 +25,7 @@ function getLocalFileIP() {
 
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
-        echo "⚠️  替换失败!获取到的ip无效或二者相同"
+        echo "⚠️ 替换失败!获取到的ip无效或二者相同"
         tips
         exit 0
     fi
@@ -66,10 +66,10 @@ function push() {
 
 function main() {
     netIP=$(getNetIP)
-    echo "当前网络的ip:$netIP"
+    echo "当前网络的ip: $netIP"
 
     localFileIP=$(getLocalFileIP)
-    echo "本地文件的ip:$localFileIP"
+    echo "本地文件的ip: $localFileIP"
 
     URL="http://$netIP"
 
