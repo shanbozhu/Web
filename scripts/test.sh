@@ -44,7 +44,7 @@ function tips() {
 function replace() {
     ./replace.sh $localFileIP $netIP html ..
     ./replace.sh $localFileIP $netIP plist ..
-    echo 替换完成!
+    echo -e "\033[34m替换完成!\033[0m"
     return 0
 }
 
