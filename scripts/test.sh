@@ -57,6 +57,7 @@ function afterReplacement() {
     return 0
 }
 
+# 调用push.sh脚本执行推送到远程操作
 source push.sh
 function push() {
     pushGithub "正在推送本地改动到github仓库..."
