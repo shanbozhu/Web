@@ -48,6 +48,7 @@ function replace() {
     return 0
 }
 
+# 替换完成之后操作
 function afterReplacement() {
     # 记录上一次的ip到本地文件
     echo "$netIP" 1>$lastIPPath
