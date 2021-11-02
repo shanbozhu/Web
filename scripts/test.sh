@@ -40,10 +40,10 @@ function tips() {
     return 0
 }
 
-# 调用update.sh脚本执行替换操作
+# 调用replace.sh脚本执行替换操作
 function replace() {
-    ./update.sh $localFileIP $netIP html ..
-    ./update.sh $localFileIP $netIP plist ..
+    ./replace.sh $localFileIP $netIP html ..
+    ./replace.sh $localFileIP $netIP plist ..
     echo 替换完成!
     return 0
 }
