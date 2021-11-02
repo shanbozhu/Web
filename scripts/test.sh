@@ -25,7 +25,7 @@ function getLocalFileIP() {
 
 function checkReplace() {
     if [ -z "$netIP" ] || [ -z "$localFileIP" ] || [ "$netIP" == "$localFileIP" ]; then
-        echo "⚠️ 替换失败!获取到的ip无效或二者相同"
+        echo "❎ 替换失败!获取到的ip无效或二者相同"
         tips
         exit 0
     fi
