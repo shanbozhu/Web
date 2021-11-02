@@ -35,7 +35,7 @@ function checkReplace() {
 # 提示
 function tips() {
     echo "$URL" | pbcopy
-    echo -e "\033[34m地址已复制到剪贴板!\033[0m"
+    echo -e "\033[34m网络地址已复制到剪贴板!\033[0m"
     echo -e "🍺 浏览器访问: \033[34m$URL\033[0m"
     return 0
 }
