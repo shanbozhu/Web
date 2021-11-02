@@ -1,6 +1,9 @@
 #!/bin/bash
 # 将当前目录下所有html和plist文件中的ip地址替换为本机地址
 
+# 导入头文件
+source push.sh
+
 directory=../
 htmlPath=${directory}index.html
 lastIPPath=./lastip.conf
@@ -59,7 +62,6 @@ function afterReplacement() {
 }
 
 # 调用push.sh脚本执行推送到远程操作
-source push.sh
 function push() {
     pushGithub "正在推送本地改动到github仓库..."
     pushCoding "正在推送manifest.plist文件到coding仓库..."
