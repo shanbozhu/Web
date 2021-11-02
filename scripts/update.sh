@@ -3,15 +3,17 @@
 
 function replacementOperation() {
     if [ ! $# -eq 4 ]; then
-        echo "usage:{$0 text1 text2 type path}"; exit
+        echo "usage:{$0 text1 text2 type path}"
+        exit
     else
         echo "替换所有\"$3\"中的\"$1\"为\"$2\""
     fi
 
     if [ ! -z $3 ]; then
-        LC_CTYPE=C sed -i "" "s/$1/$2/g" `grep -rl $1 $4 --include=*.$3` &> /dev/null
+        LC_CTYPE=C sed -i "" "s/$1/$2/g" $(grep -rl $1 $4 --include=*.$3) &>/dev/null
     else
-        LC_CTYPE=C sed -i "" "s/$1/$2/g" `grep -rl $1 $4` &> /dev/null
+        #LC_CTYPE=C sed -i "" "s/$1/$2/g" `grep -rl $1 $4` &> /dev/null
+        LC_CTYPE=C sed -i "" "s/$1/$2/g" $(grep -rl $1 $4) &>/dev/null
     fi
     return 0
 }
