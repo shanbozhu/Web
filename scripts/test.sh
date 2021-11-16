@@ -77,7 +77,7 @@ function main() {
 
     URL="http://$netIP"
 
-    checkReplace
+    #checkReplace
     replace
     afterReplacement
     push
