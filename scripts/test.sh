@@ -1,5 +1,5 @@
 #!/bin/bash
-# 将当前目录下所有html和plist文件中的ip地址替换为本机地址
+# 将当前目录下所有html和plist文件中的ip地址替换为本机ip地址
 
 # 导入头文件
 source push.sh
@@ -80,7 +80,7 @@ function main() {
     #checkReplace
     replace
     afterReplacement
-    push
+    #push
     tips
     return 0
 }
